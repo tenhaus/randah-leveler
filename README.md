@@ -14,8 +14,9 @@ $ npm install --save randah-leveler
 
 ```js
 var randah-leveler = require('randah-leveler');
+var leveler = randah-leveler();
+leveler.increment(60);
 
-randah-leveler('Rainbow');
 ```
 
 

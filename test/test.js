@@ -11,11 +11,6 @@ chai.should();
 
 describe('randah-leveler node module', function () {
 
-  it('must start at level 1', function () {
-    return randahLeveler().level()
-    .should.equal(1);
-  });
-
 
   it('must set level', function() {
     return randahLeveler().level(40)
@@ -31,16 +26,34 @@ describe('randah-leveler node module', function () {
   });
 
 
-  it('must calculate xp for level', function() {
-    // var leveler = randahLeveler();
+  it('must start at level 1', function () {
+    return randahLeveler().level()
+    .should.equal(1);
   });
 
 
-  it('must level up', function() {
+  it('must be level 2 for 1 hour', function() {
     var leveler = randahLeveler();
     leveler.increment(60);
 
     return leveler.level().should.equal(2);
   });
+
+
+  it('must be level 20 for 19 hours', function() {
+    var leveler = randahLeveler();
+    leveler.increment(19*60);
+
+    return leveler.level().should.equal(20);
+  });
+
+
+  it('must be level 10000 at 9999 hours', function() {
+    var leveler = randahLeveler();
+    leveler.increment(9999*60);
+
+    return leveler.level().should.equal(10000);
+  });
+
 
 });

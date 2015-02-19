@@ -6,18 +6,19 @@ module.exports = function () {
   var _level = 1;
 
   function curve (currentLevel) {
-    return currentLevel;
+    return currentLevel * 60;
   }
 
   function calculateLevel(xp) {
     _xp += xp;
 
-    while((_xp/60) >= curve(_level)) {
+    while(_xp >= curve(_level)) {
       _level++;
     }
 
     return 1;
   }
+
 
   return {
 
